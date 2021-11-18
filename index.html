@@ -58,12 +58,11 @@
     const DrumPad = ({ data, audio, display }) => {
       return (
         <div className="row row-cols-3 mx-auto" style={{width: '500px'}}>
-          {data.map(({ key, name, sound }) => (
-            <div className="col">
+          {data.map(({ key, name, sound, keyCodes }) => (
+            <div className="col" key={keyCodes}>
             <div
               id={name}
               className="drum-pad col btn btn-primary p-4 m-1 w-100"
-              key={key}
               onClick={() => {
                 audio(key);
                 display(name);
